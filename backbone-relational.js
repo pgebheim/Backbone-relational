@@ -8,11 +8,12 @@
  */
 ( function( undefined ) {
 	"use strict";
-	
+
 	/**
 	 * CommonJS shim
 	 **/
 	var _, Backbone;
+  var exports = exports || window;
 	if ( typeof module !== 'undefined' && typeof exports !== 'undefined') {
 		_ = require( 'underscore' );
 		Backbone = require( 'backbone' );
@@ -21,7 +22,7 @@
 	else if ( typeof window !== 'undefined') {
 		_ = window._;
 		Backbone = window.Backbone;
-		var exports = window;
+		exports = window;
 	} else {
     throw "Executing in a weird environment without exports or window";
   }
