@@ -13,16 +13,18 @@
 	 * CommonJS shim
 	 **/
 	var _, Backbone, exports;
-	if ( typeof window === 'undefined' ) {
+	if ( typeof module !== 'undefined' && typeof exports !== 'undefined') {
 		_ = require( 'underscore' );
 		Backbone = require( 'backbone' );
 		exports = module.exports = Backbone;
 	}
-	else {
+	else if ( typeof window !== 'undefined') {
 		_ = window._;
 		Backbone = window.Backbone;
 		exports = window;
-	}
+	} else {
+    throw "Executing in a weird environment without exports or window";
+  }
 
 	Backbone.Relational = {
 		showWarnings: true
